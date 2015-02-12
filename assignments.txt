@@ -1,0 +1,32 @@
+1   Python: Hello World
+
+2   Python: Perguntar a Idade e devolver o ano de nascimento ( se quisseres meter o mes de nascimento melhor)
+
+3   Python: definir uma fun��o max() que aceita 2 argumentos e que devolve o numero maior
+
+4   Python: definir uma fun��o max() que aceite um numero indeterminado de argumentos (este � para o 20)
+
+5   Python: fun��o que receba um caracter e que retorne True se for uma vogal, False se for outra coisa
+
+6   Python: definir uma fun��o que fa�a reverse a uma string: ex: "pedro" -> "ordep"
+
+7   Python: definir uma fun��o que receba um valor e uma lista e determina se o valor pertence a lista
+
+8   Python: Fazer pedido http a uma pagina ler o conte�do e devolver uma lista com todos os links encontrados ( esta � para o 20)
+
+9   Python: Fazer uma fun��o que consuma os REST services desta pagina para mostrar a meteorologia actualmente: http://openweathermap.org/api
+
+10  Python: Criar pequeno programa de gest�o de tickets (tudo em consola n�o te metas em aventuras). O programa deve usar classes para representar os objectos descritos neste exerc�cio. Ao iniciar deve ser apresentado um menu com as seguintes op��es:
+    1-Abrir Ticket
+    2-Ver Ticket
+    3-Criar Utilizador
+
+    Abrir o ticket vai pedir a seguinte informa��o:
+    Uitilzador de Destino
+    Titulo
+    Descri��o
+    Estado
+
+    Ver tickets pede um userid e mostra os tickets assignados para esse user (s� o titulo e o id do ticket) introduzimos o id e podemos ver a informa��o do ticket e temos a hip�tese de voltar para tras ou alterar o estado do ticket para fechado
+
+    Criar utilizar � para criar utilizadores que v�o ser destinat�rios dos tickets so � necess�rio nome e ID
