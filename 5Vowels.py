@@ -2,7 +2,7 @@
 
 aVowels = ["a","e","i","o","u","A","E","I","O","U"]
 
-
+#
 def checkVowel(cChar):
 #   bCheck = False
     for item in aVowels:
