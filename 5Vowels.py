@@ -3,14 +3,12 @@
 aVowels = ["a","e","i","o","u"]
 
 def checkVowel(cChar):
-    bCheck = False #parece pouco elegante
+    bCheck = False
     for item in aVowels:
         if(item == cChar):
-            bCheck = True
-            break
-        else:
-            bCheck = False
-    return bCheck
-cChar = raw_input("Insert character").lower() #input() n funciona pq
+            return True
+    return False
+
+cChar = raw_input("Insert character").lower()
 
 print checkVowel(cChar)
