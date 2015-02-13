@@ -7,7 +7,9 @@
 4  Python: definir uma fun��o max() que aceite um numero indeterminado de argumentos (este � para o 20)
 
 5  Python: fun��o que receba um caracter e que retorne True se for uma vogal, False se for outra coisa
+
 6  Python: definir uma fun��o que fa�a reverse a uma string: ex: "pedro" -> "ordep"
+
 7  Python: definir uma fun��o que receba um valor e uma lista e determina se o valor pertence a lista
 8  Python: Fazer pedido http a uma pagina ler o conte�do e devolver uma lista com todos os links encontrados ( esta � para o 20)
 9  Python: Fazer uma fun��o que consuma os REST services desta pagina para mostrar a meteorologia actualmente: http://openweathermap.org/api
