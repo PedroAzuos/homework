@@ -11,7 +11,11 @@
 6  Python: definir uma fun��o que fa�a reverse a uma string: ex: "pedro" -> "ordep"
 
 7  Python: definir uma fun��o que receba um valor e uma lista e determina se o valor pertence a lista
+
 8  Python: Fazer pedido http a uma pagina ler o conte�do e devolver uma lista com todos os links encontrados ( esta � para o 20)
+    *http request
+    *regular expressions
+
 9  Python: Fazer uma fun��o que consuma os REST services desta pagina para mostrar a meteorologia actualmente: http://openweathermap.org/api
 
 10 Python: Criar pequeno programa de gest�o de tickets (tudo em consola n�o te metas em aventuras). O programa deve usar classes para representar os objectos descritos neste exerc�cio. Ao iniciar deve ser apresentado um menu com as seguintes op��es:
