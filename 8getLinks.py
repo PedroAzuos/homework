@@ -21,6 +21,4 @@ def printItems(links):
 
 URL = raw_input("Insert page URL to retrieve links from:")
 
-urlItems=getUrl(URL)
-
-print printItems(urlItems)
+print printItems(getUrl(URL))
