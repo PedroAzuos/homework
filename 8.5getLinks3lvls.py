@@ -3,10 +3,9 @@
 #   *regular expressions
 #   base: http://www.pythonforbeginners.com/code/regular-expression-re-findall
 
-import urllib2
-import re
-import  os
-import time
+import urllib2, re, os, time
+
+
 
 #find if log file exists. if not creates and opens it.
 def logInit():
@@ -46,10 +45,14 @@ def logInit():
 
 #retreive links from url
 def getUrl(URL):
-    connection = urllib2.urlopen(URL)
-    htmlData = connection.read()
-    connection.close()
-    links = re.findall('"((http|ftp)s?://.*?)"', htmlData)
+    try:
+        connection = urllib2.urlopen(URL)
+        htmlData = connection.read()
+        connection.close()
+        links = re.findall('"((http|ftp)s?://.*?)"', htmlData)
+    except:
+        print "fodeu"
+        links = []
     return links
 
 #print links from url
@@ -59,19 +62,19 @@ def printItems(linksLvl1):
 
     t=0
     for item in linksLvl1:
-        linksLvl2=getUrl(item)
+        linksLvl2=getUrl(item[0])
         for item2 in linksLvl2:
-            linksLvl3=getUrl(item2)
+            linksLvl3=getUrl(item2[0])
             for item3 in linksLvl3:
                 t+=1
-                print "Item {0}: Lvl 3: {1}".format(t,item3)
-                log.write(str(item3)+"\n")
+                print "Item {0}: Lvl 3: {1}".format(t,item3[0])
+                log.write(str(item3[0])+"\n")
             t+=1
-            print "Item {0}: Lvl 2: {1}".format(t,item2)
-            log.write(str(item2)+"\n")
+            print "Item {0}: Lvl 2: {1}".format(t,item2[0])
+            log.write(str(item2[0])+"\n")
         t+=1
-        print  "Item {0}: Lvl 1: {1}".format(t,item)
-        log.write(str(item)+"\n")
+        print  "Item {0}: Lvl 1: {1}".format(t,item[0])
+        log.write(str(item[0])+"\n")
     print "Total items: {0}".format(t)
 
 
