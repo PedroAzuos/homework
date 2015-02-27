@@ -18,7 +18,8 @@
 
 9  Python: Fazer uma fun��o que consuma os REST services desta pagina para mostrar a meteorologia actualmente: http://openweathermap.org/api
 
-10 Python: Criar pequeno programa de gest�o de tickets (tudo em consola n�o te metas em aventuras). O programa deve usar classes para representar os objectos descritos neste exerc�cio. Ao iniciar deve ser apresentado um menu com as seguintes op��es:
+10 Python: Criar pequeno programa de gest�o de tickets (tudo em consola n�o te metas em aventuras).
+O programa deve usar classes para representar os objectos descritos neste exerc�cio. Ao iniciar deve ser apresentado um menu com as seguintes op��es:
 1-Abrir Ticket
 2-Ver Ticket
 3-Criar Utilizador
@@ -29,6 +30,7 @@ Titulo
 Descri��o
 Estado
 
-Ver tickets pede um userid e mostra os tickets assignados para esse user (s� o titulo e o id do ticket) introduzimos o id e podemos ver a informa��o do ticket e temos a hip�tese de voltar para tras ou alterar o estado do ticket para fechado
+Ver tickets pede um userid e mostra os tickets assignados para esse user (s� o titulo e o id do ticket)
+introduzimos o id e podemos ver a informa��o do ticket e temos a hip�tese de voltar para tras ou alterar o estado do ticket para fechado
 
 Criar utilizar � para criar utilizadores que v�o ser destinat�rios dos tickets so � necess�rio nome e ID

@@ -7,6 +7,7 @@ def getRestData(url):
     request = urllib2.urlopen(url)
 
     rData = json.load(request)
+    string = str(rData)
     return rData
 
 """
