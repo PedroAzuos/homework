@@ -30,7 +30,7 @@ class ticket:
         return file
 
     def saveTicket(self):
-        #load/prepare user file
+        #load/prepare ticket file
         self.cTicketsFile()
         tickets = json.load(open(ticketsFileName))
         print('Adding ticket {0}...'.format(len(tickets)))
