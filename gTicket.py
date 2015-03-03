@@ -3,25 +3,23 @@ __author__ = 'Pedro'
 
 import mTickets, mUsers, json, os, time
 
-ticketsFileName = os.getcwd() + "\Tickets.log"
-usersFileName = os.getcwd() + "\Users.log"
+ticketsFileName = os.getcwd() + "\Tickets.log" # this belongs to the ticket class
+usersFileName = os.getcwd() + "\Users.log"     # this belong to the users class
 
 
-
+# this method can be a static method on the users class where you pass the user list as parameter
 def saveUsers():
     with open(usersFileName, 'w+') as outfile:
             json.dump(users, outfile)
     print "Users saved."
     time.sleep(1)
 
+# same as above but for the tickets
 def saveTickets():
     with open(ticketsFileName, 'w+') as outfile:
             json.dump(tickets, outfile)
     print "Tickets saved."
     time.sleep(1)
-
-
-
 
 def addUser():
     newUserName = raw_input("Insert new user name")
