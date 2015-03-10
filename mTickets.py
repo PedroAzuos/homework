@@ -6,6 +6,13 @@ import os, time, json
 ticketsFileName = os.getcwd() + "\Tickets.log"
 
 #checks if tickets file JSON if exists. if not, creates file
+# This is done in the lazy way an it preety bad
+#
+# This should be  static and use static counter to add or remove
+# remember when loading the file we should get the max id to set as the 
+# starting counter value
+
+# I don't want you to ever mix standalone methods and classes!!!
 def cTicketsFile():
     #if file exists
     if os.path.exists(ticketsFileName):
