@@ -1,17 +1,19 @@
 # coding=utf-8
 __author__ = 'Pedro'
-import os, time, json, gTicket
+__name__ = 'mUsers'
+import os, time, json
 
+usersFileName = os.getcwd() + "\Users.log"
 
 #checks if users file JSON if exists. if not, creates file
 def cUsersFile():
     #if file exists
-    if os.path.exists(gTicket.usersFileName):
+    if os.path.exists(usersFileName):
         print "Loading Users file"
         time.sleep(1)
         #if file not empty, load file
-        if os.path.getsize(gTicket.usersFileName) > 0:
-            file=open(gTicket.usersFileName, 'r+')
+        if os.path.getsize(usersFileName) > 0:
+            file=open(usersFileName, 'r+')
             #load records file
             users=json.load(file)
             file.close()
@@ -27,7 +29,7 @@ def cUsersFile():
     #if file does not exist create file and load sample record to users instance
     else:
         #create new file
-        file = open(gTicket.usersFileName,'w+')
+        file = open(usersFileName,'w+')
         file.close()
         print "Users file empty or not found. Formatting new Users file..."
         time.sleep(1)
@@ -40,16 +42,25 @@ class user:
     def __init__(self, newName):
         self.name = newName
 
-    def saveUser(self):
-        print('Adding user {0}...'.format(len(gTicket.users)))
+    def saveUser(self,users, ID):
+        users=users
+        print('Adding user {0}...'.format(ID))
         time.sleep(1)
-        gTicket.users[len(gTicket.users)] = self.name
-        gTicket.menu()
+        users[ID] = self.name
+        return True
 
-    def validateUser(self,userID):
-        if userID in gTicket.users:
+
+    def validateUser(self,userID, users):
+        users=users
+        if userID in users:
             return False
         else:
             print "User does not exist. Insert a valid user"
 
 
+    def viewUser(self,userID, users):
+        users=users
+        if userID in users:
+            print users[userID]["name"]
+        else:
+            print "User does not exist. Insert a valid user"

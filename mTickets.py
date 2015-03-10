@@ -1,17 +1,19 @@
 # coding=utf-8
 __author__ = 'Pedro'
-import os, time, json, gTicket
+__name__ = 'mTickets'
+import os, time, json
 
+ticketsFileName = os.getcwd() + "\Tickets.log"
 
 #checks if tickets file JSON if exists. if not, creates file
 def cTicketsFile():
     #if file exists
-    if os.path.exists(gTicket.ticketsFileName):
+    if os.path.exists(ticketsFileName):
         print "Loading Users file"
         time.sleep(1)
         #if file not empty, load file
-        if os.path.getsize(gTicket.ticketsFileName) > 0:
-            file=open(gTicket.ticketsFileName, 'r+')
+        if os.path.getsize(ticketsFileName) > 0:
+            file=open(ticketsFileName, 'r+')
             #load records file
             tickets=json.load(file)
             file.close()
@@ -27,7 +29,7 @@ def cTicketsFile():
     #if file does not exist create file and load sample record to users instance
     else:
         #create new file
-        file = open(gTicket.ticketsFileName,'w+')
+        file = open(ticketsFileName,'w+')
         file.close()
         print "Users file empty or not found. Formatting new Users file..."
         time.sleep(1)
@@ -44,23 +46,22 @@ class ticket:
 
     #returns tickets file if exists. if not, creates file
 
-    def addTicket(self):
-        #load/prepare user file
-        print('Adding ticket {0}...'.format(len(gTicket.tickets)))
+    def addTicket(self, newID):
+        print('Adding ticket {0}...'.format(newID))
         time.sleep(1)
         #adds new record. ID is JSON length (always 1 bigger by default)
-        newID=len(gTicket.tickets)
+
         data = {"ticketID": newID,
                 "userID": self.userID,
                 "title": self.title,
                 "description": self.description,
                 "status": "Open"}
+        return data
 
-        gTicket.tickets.append(data)
-        gTicket.menu()
 
-def changeTicketStatus(ticketID):
-    for item in gTicket.tickets:
+def changeTicketStatus(ticketID,tickets):
+    tickets=tickets
+    for item in tickets:
         if item["ticketID"]==int(ticketID):
             if item["status"]=="Open":
                 print "Ticket closed"
@@ -70,4 +71,5 @@ def changeTicketStatus(ticketID):
                 print "Ticket re-opened"
                 time.sleep(1)
                 item["status"]="Open"
-    gTicket.viewTicket()
+    return True
+

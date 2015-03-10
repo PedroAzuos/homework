@@ -1,11 +1,13 @@
 # coding=utf-8
 __author__ = 'Pedro'
 
-import mTickets, mUsers, json, os, time
-
+import mUsers
+import mTickets
+import json, os, time, imp
 ticketsFileName = os.getcwd() + "\Tickets.log"
 usersFileName = os.getcwd() + "\Users.log"
-
+#mTickets = imp.load_source('mTickets', os.getcwd()+"\mTickets.py")
+#mUsers = imp.load_source('musers', os.getcwd()+"\mTickets.py")
 
 
 def saveUsers():
@@ -26,25 +28,31 @@ def saveTickets():
 def addUser():
     newUserName = raw_input("Insert new user name")
     newUser = mUsers.user(newUserName)
-    newUser.saveUser()
-    menu()
+    newUser.saveUser(users,ID=len(users))
+    saveUsers()
 
 
-def openTicket():
+def newTicket():
     print("Creating new ticket")
     userID = raw_input("Insert user ID to assign the ticket")
     while True:
         targetUser = mUsers.user("validationUser")
-        validation = targetUser.validateUser(userID)
+        validation = targetUser.validateUser(userID, users)
         if validation == False:
+            openTicket(userID)
             break
         else:
-            openTicket()
+            print 'Invalid user selected'
+            break
+
+def openTicket(userID):
+    userID=userID
     title = raw_input("Insert the ticket Title")
     description = raw_input("Insert the ticket Description")
     newTicket = mTickets.ticket(userID,title,description)
-    newTicket.addTicket()
-    menu()
+    newTicket = newTicket.addTicket(newID=len(tickets))
+    tickets.append(newTicket)
+    saveTickets()
 
 def viewTicket():
     ticketID = raw_input("Insert ticket ID")
@@ -60,11 +68,10 @@ def viewTicket():
     if option == "1":
         menu()
     elif option == "2":
-        mTickets.changeTicketStatus(ticketID)
+        mTickets.changeTicketStatus(ticketID, tickets) #CONFIRMAR SE ESTÁ A FUNCIONAR#############################
     else:
         print("No valid option selected.")
         time.sleep(1)
-        menu()
 
 
 def listTickets():
@@ -78,33 +85,35 @@ def listTickets():
 
         if option == "1":
             viewTicket()
-        elif option == "2":
-            menu()
         else:
-            print("No valid option selected.")
-            time.sleep(1)
-            menu()
+            return
 
 def menu():
-    option = raw_input("Ticket Manager: \n 1 - Open Ticket \n 2 - List Tickets \n 3 Create user \n 4 Save and Exit")
+    while True:
+        option = raw_input("Ticket Manager: \n 1 - Open Ticket \n 2 - List Tickets \n 3 Create user")
 
-    if option == "1":
-        openTicket()
-    elif option == "2":
-        listTickets()
-    elif option == "3":
-        addUser()
-    else:
-        print "Saving and exiting"
-        time.sleep(1)
+        if option <> 1 and 2 and 3 and 4:
+                if option == "1":
+                    newTicket()
+                elif option == "2":
+                    listTickets()
+                elif option == "3":
+                    addUser()
+                elif option == "4":
+                    mUsers.user.viewUser(1,users)
+                else:
+                    print "Closing app"
+                    time.sleep(1)
+        else:
+            print 'Closing...'
+
+
+
 
 #prepare users and tickets files
-tickets = mTickets.cTicketsFile()
 users = mUsers.cUsersFile()
+tickets = mTickets.cTicketsFile()
 
 #enter menu
 menu()
 
-#save tickets and files after exiting menu (exiting program)
-saveTickets()
-saveUsers()
